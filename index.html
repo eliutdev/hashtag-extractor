@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Hashtag Extractor</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  </head>
+  <body>
+    <h1>Hashtag Extractor</h1>
+    <textarea id="text" cols="30" rows="10"></textarea>
+    <h2>Hashtags</h2>
+    <p id="result"></p>
+    <script>
+      const textarea = document.querySelector("#text");
+      textarea.addEventListener("keyup", (e) => {
+        const text = textarea.value;
+        const hashtags = text.match(/#\w+/g);
+        if (hashtags) {
+          const result = hashtags.join(", ");
+          document.querySelector("#result").innerHTML = result;
+        }
+      });
+    </script>
+  </body>
+</html>
